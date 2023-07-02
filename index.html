@@ -15,12 +15,12 @@
     }
 
     h1 {
-        font-size: 51px;
+        font-size: 50px;
     }
 
     p {
         font-size: 15px;
-        margin-inline: 0px;
+        margin-inline: 20px;
     }
 
     .image-container {
@@ -92,32 +92,60 @@
     </div>
 
 
-     <div class="image-container" style="text-align: center;">
+    <div class="image-container" style="text-align: center;">
         <img src="tulipan.png" alt="Imagen" id="imagen" onclick="duplicateImage()">
     </div>
 
 </body>
 
 <script>
-function duplicateImage() {
-  var originalImage = document.getElementById("imagen");
-  var duplicate = originalImage.cloneNode(true);
-  duplicate.classList.add("duplicate-image");
-  originalImage.parentNode.appendChild(duplicate);
+    var positions = [];
 
-  var container = document.querySelector(".image-container");
-  var containerRect = container.getBoundingClientRect();
+    function getRandomPosition(containerRect, duplicateRect) {
+        var minX = 0;
+        var minY = 0;
+        var maxX = containerRect.width - duplicateRect.width;
+        var maxY = containerRect.height - duplicateRect.height;
 
-  var randomX = Math.random() * (containerRect.width - duplicate.width);
-  var randomY = Math.random() * (containerRect.height - duplicate.height);
+        var randomX = Math.floor(Math.random() * (maxX - minX + 1)) + minX;
+        var randomY = Math.floor(Math.random() * (maxY - minY + 1)) + minY;
 
-  duplicate.style.left = randomX + "px";
-  duplicate.style.top = randomY + "px";
+        var position = { x: randomX, y: randomY };
 
-  duplicate.onclick = function () {
-    duplicateImage();
-  };
-}
+        if (positions.length === maxX * maxY) {
+            positions = [];
+        }
+
+        while (positions.some(pos => pos.x === position.x && pos.y === position.y)) {
+            randomX = Math.floor(Math.random() * (maxX - minX + 1)) + minX;
+            randomY = Math.floor(Math.random() * (maxY - minY + 1)) + minY;
+            position = { x: randomX, y: randomY };
+        }
+
+        positions.push(position);
+        return position;
+    }
+
+    function duplicateImage() {
+        var originalImage = document.getElementById("imagen");
+        var duplicate = originalImage.cloneNode(true);
+        duplicate.classList.add("duplicate-image");
+        originalImage.parentNode.appendChild(duplicate);
+
+        var container = document.querySelector(".image-container");
+        var containerRect = container.getBoundingClientRect();
+        var duplicateRect = duplicate.getBoundingClientRect();
+
+        var position = getRandomPosition(containerRect, duplicateRect);
+
+        duplicate.style.left = position.x + "px";
+        duplicate.style.top = position.y + "px";
+
+        duplicate.onclick = function () {
+            duplicateImage();
+        };
+    }
+
 
 </script>
 

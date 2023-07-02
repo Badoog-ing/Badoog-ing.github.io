@@ -99,12 +99,26 @@
 </body>
 
 <script>
-    function duplicateImage() {
-        var originalImage = document.getElementById("imagen");
-        var duplicate = originalImage.cloneNode(true);
-        duplicate.classList.add("duplicate-image");
-        originalImage.parentNode.appendChild(duplicate);
-    }
+function duplicateImage() {
+  var originalImage = document.getElementById("imagen");
+  var duplicate = originalImage.cloneNode(true);
+  duplicate.classList.add("duplicate-image");
+  originalImage.parentNode.appendChild(duplicate);
+
+  var container = document.querySelector(".image-container");
+  var containerRect = container.getBoundingClientRect();
+
+  var randomX = Math.random() * (containerRect.width - duplicate.width);
+  var randomY = Math.random() * (containerRect.height - duplicate.height);
+
+  duplicate.style.left = randomX + "px";
+  duplicate.style.top = randomY + "px";
+
+  duplicate.onclick = function () {
+    duplicateImage();
+  };
+}
+
 </script>
 
 </html>

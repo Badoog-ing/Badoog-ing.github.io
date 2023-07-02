@@ -10,17 +10,30 @@
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <style>
     body {
-        background-color: #DC7633;
-        color: #ffffff;
+        background-image: url('fondo.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
         font-family: Arial, Helvetica, sans-serif;
         text-align: center;
     }
 
 
+    h1 {
+        text-shadow: #ffffff 0px 0px 10px;
+    }
+
+    #resultado {
+        text-shadow: red 0px 0px 10px;
+        color: white;
+    }
+
     p {
-        font-size: 15px;
+        font-size: 20px;
         margin: 0;
         padding: 5px;
+        font-weight: bold;
+        text-shadow: black 10px 10px 40px;
+        color: gainsboro;
     }
 
     .image-container {
@@ -46,9 +59,11 @@
 
     <div class="image-container">
         <div class="container card-body">
-            <h1 style="text-transform: uppercase;">Hard to say I'm sorry</h1>
+            <h1 style="text-transform: uppercase;"><strong>Hard to say I'm sorry</strong></h1>
         </div>
-        <h1 id="resultado" style="text-transform: uppercase;"></h1>
+        <h1 style="text-transform: uppercase;">
+            <span id="resultado1"></span><span id="resultado2"></span>
+        </h1>
 
         <br>
         <div class="container">
@@ -73,7 +88,7 @@
                 </div>
                 <div class="col-sm-4">
                     <p>You're just a pa<span id="span-clickeable" style="cursor: pointer;"
-                            onclick="agregarLetraH1(this)">r</span>t of me I can't let go</p>
+                            onclick="agregarLetraH2(this)">r</span>t of me I can't let go</p>
                     <br>
                     <p>Couldn't stand to be kept away</p>
                     <p>Just for a day</p>
@@ -113,8 +128,8 @@
 
 
 
-        <iframe width="300" height="200" src="https://www.youtube.com/embed/1A0MPWseJIE?autoplay=1"
-            title="Chicago - Hard To Say I&#39;m Sorry (Official Music Video)" frameborder="0"
+        <iframe width="0" height="0" src="https://www.youtube.com/embed/1A0MPWseJIE?autoplay=1"
+            title="Chicago - Hard To Say I&#39;m Sorry (Official Music Video)" frameborder="0" autoplay: 1
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen></iframe>
 
@@ -177,7 +192,7 @@
 
 
     function agregarLetraH1(spanElement) {
-        var h1Element = document.getElementById("resultado");
+        var h1Element = document.getElementById("resultado1");
         var textoActual = h1Element.innerText;
         var letraClickeada = spanElement.innerText;
         var nuevoTexto = textoActual + letraClickeada;
@@ -189,6 +204,18 @@
 
     }
 
+    function agregarLetraH2(spanElement) {
+        var h1Element = document.getElementById("resultado2");
+        var textoActual = h1Element.innerText;
+        var letraClickeada = spanElement.innerText;
+        var nuevoTexto = textoActual + letraClickeada;
+        h1Element.innerText = nuevoTexto;
+
+        funcionEjecutada = true;
+        spanElement.removeAttribute("onclick");
+        // spanElement.style.cursor = "not-allowed";
+
+    }
 
 
 

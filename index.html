@@ -1,114 +1,110 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Para ti</title>
 </head>
 <style>
-    body{
-        background-color: #000000;
+    body {
+        background-color: #DC7633;
         color: #ffffff;
         font-family: Arial, Helvetica, sans-serif;
         text-align: center;
     }
-    h1{
+
+    h1 {
         font-size: 50px;
     }
-    p{
-        font-size: 30px;
+
+    p {
+        font-size: 15px;
         margin-inline: 20px;
     }
 
-    .tulip-container {
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  height: 200px;
-}
+    .image-container {
+        position: relative;
+        width: 200px;
+    }
 
-.tulip {
-  width: 80px;
-  height: 120px;
-  background-color: #ff4081;
-  border-radius: 50% 50% 40% 40%;
-  position: relative;
-  z-index: 2;
-}
+    .image-container img {
+        width: 100%;
+        height: auto;
+    }
 
-.tulip:before {
-  content: "";
-  position: absolute;
-  top: -20px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0;
-  height: 0;
-  border-left: 40px solid transparent;
-  border-right: 40px solid transparent;
-  border-bottom: 60px solid #ff4081;
-  z-index: -1;
-}
-
-.tulip-leaf {
-  width: 60px;
-  height: 60px;
-  background-color: #8bc34a;
-  border-radius: 50%;
-  transform: rotate(-45deg) translateX(20px);
-  margin-bottom: 20px;
-}
-
+    .duplicate-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translate(-50%, -50%);
+        opacity: 0.5;
+    }
 </style>
+
 <body>
 
-<h1>Hard to say I'm sorry</h1>
+    <div class="container">
+        <h1>Hard to say I'm sorry</h1>
 
-<p>Everybody needs a little time away</p>
-<p>I heard her say</p>
-<p>From each other</p>
+        <p>Everybody needs a little time away</p>
+        <p>I heard her say</p>
+        <p>From each other</p>
 
-<p>Even lovers need a holiday</p>
-<p>Far away from each other</p>
+        <p>Even lovers need a holiday</p>
+        <p>Far away from each other</p>
 
-<p>Hold me now</p>
-<p>It's hard for me to say I'm sorry</p>
-<p>I just want you to stay</p>
+        <p>Hold me now</p>
+        <p>It's hard for me to say I'm sorry</p>
+        <p>I just want you to stay</p>
 
-<p>After all that we've been through</p>
-<p>I will make it up to you</p>
-<p>I promise to</p>
+        <p>After all that we've been through</p>
+        <p>I will make it up to you</p>
+        <p>I promise to</p>
 
-And after all that's been said and done
-You're just a part of me I can't let go
+        And after all that's been said and done
+        You're just a part of me I can't let go
 
-Couldn't stand to be kept away
-Just for a day
-From your body
-Wouldn't want to be swept away
-Far away
-From the one that I love
+        Couldn't stand to be kept away
+        Just for a day
+        From your body
+        Wouldn't want to be swept away
+        Far away
+        From the one that I love
 
-Hold me now
-It is hard for me to say I'm sorry
-I just want you to know
-Hold me now
-I really want to tell you I'm sorry
-I could never let you go
+        Hold me now
+        It is hard for me to say I'm sorry
+        I just want you to know
+        Hold me now
+        I really want to tell you I'm sorry
+        I could never let you go
 
-After all that we've been through
-I will make it up to you
-I promise to
+        After all that we've been through
+        I will make it up to you
+        I promise to
 
-After all that's been said and done
-You're just a part of me I can't let go
+        After all that's been said and done
+        You're just a part of me I can't let go
 
-After all that we've been through
-I will make it up to you
-I promise to
-<div class="tulip-container">
-    <div class="tulip"></div>
-    <div class="tulip-leaf"></div>
-  </div>
+        After all that we've been through
+        I will make it up to you
+        I promise to
+    </div>
+
+
+    <div class="image-container">
+        <img src="tulipan.png" alt="Imagen" id="imagen" onclick="duplicateImage()">
+    </div>
+
 </body>
+
+<script>
+    function duplicateImage() {
+        var originalImage = document.getElementById("imagen");
+        var duplicate = originalImage.cloneNode(true);
+        duplicate.classList.add("duplicate-image");
+        originalImage.parentNode.appendChild(duplicate);
+    }
+</script>
+
 </html>

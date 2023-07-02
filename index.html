@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Para ti</title>
 </head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <style>
     body {
         background-color: #DC7633;
@@ -14,13 +16,11 @@
         text-align: center;
     }
 
-    h1 {
-        font-size: 51px;
-    }
 
     p {
         font-size: 15px;
-        margin-inline: 20px;
+        margin: 0;
+        padding: 5px;
     }
 
     .image-container {
@@ -28,73 +28,98 @@
         /* width: 200px; */
     }
 
-/*     .image-container img {
+    /* .image-container img {
         width: 100%;
         height: auto;
     } */
 
     .duplicate-image {
         position: absolute;
-/*         top: 0;
+        /* top: 0;
         left: 0; */
         transform: translate(-50%, -50%);
-        opacity: 0.5;
+        /* opacity: 0.5; */
     }
 </style>
 
 <body>
 
     <div class="image-container">
-    <div class="container">
-        <h1>Hard to say I'm sorry</h1>
+        <div class="container card-body">
+            <h1 style="text-transform: uppercase;">Hard to say I'm sorry</h1>
+        </div>
 
-        <p>Everybody needs a little time away</p>
-        <p>I heard her say</p>
-        <p>From each other</p>
+        <br>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+                    <p>Everybody needs a little time away</p>
+                    <p>I heard her say</p>
+                    <p>From each other</p>
+                    <br>
+                    <p>Even lovers need a holiday</p>
+                    <p>Far away from each other</p>
+                    <br>
+                    <p>Hold me now</p>
+                    <p>It's hard for me to say I'm sorry</p>
+                    <p>I just want you to stay</p>
+                    <br>
+                    <p>After all that we've been through</p>
+                    <p>I will make it up to you</p>
+                    <p>I promise to</p>
+                    <p>And after all that's been said and done</p>
+                </div>
+                <div class="col-sm-4">
+                    <p>You're just a part of me I can't let go</p>
+                    <br>
+                    <p>Couldn't stand to be kept away</p>
+                    <p>Just for a day</p>
+                    <p>From your body</p>
+                    <p>Wouldn't want to be swept away</p>
+                    <p>Far away</p>
+                    <p>From the one that I love</p>
+                    <br>
+                    <p>Hold me now</p>
+                    <p>It is hard for me to say I'm sorry</p>
+                    <p>I just want you to know</p>
+                    <p>Hold me now</p>
+                    <p>I really want to tell you I'm sorry</p>
+                    <p>I could never let you go</p>
+                </div>
+                <div class="col-sm-4">
+                    <p>After all that we've been through</p>
+                    <p>I will make it up to you</p>
+                    <p>I promise to</p>
+                    <br>
+                    <p>After all that's been said and done</p>
+                    <p>You're just a part of me I can't let go</p>
+                    <br>
+                    <p>After all that we've been through</p>
+                    <p>I will make it up to you</p>
+                    <p>I promise to</p>
+                    <br><br><br><br><br><br>
+                </div>
+            </div>
+        </div>
 
-        <p>Even lovers need a holiday</p>
-        <p>Far away from each other</p>
-
-        <p>Hold me now</p>
-        <p>It's hard for me to say I'm sorry</p>
-        <p>I just want you to stay</p>
-
-        <p>After all that we've been through</p>
-        <p>I will make it up to you</p>
-        <p>I promise to</p>
-
-        <p>And after all that's been said and done</p>
-        <p>You're just a part of me I can't let go</p>
-
-        <p>Couldn't stand to be kept away</p>
-        <p>Just for a day</p>
-        <p>From your body</p>
-        <p>Wouldn't want to be swept away</p>
-        <p>Far away</p>
-        <p>From the one that I love</p>
-
-        <p>Hold me now</p>
-        <p>It is hard for me to say I'm sorry</p>
-        <p>I just want you to know</p>
-        <p>Hold me now</p>
-        <p>I really want to tell you I'm sorry</p>
-        <p>I could never let you go</p>
-
-        <p>After all that we've been through</p>
-        <p>I will make it up to you</p>
-        <p>I promise to</p>
-
-        <p>After all that's been said and done</p>
-        <p>You're just a part of me I can't let go</p>
-
-        <p>After all that we've been through</p>
-        <p>I will make it up to you</p>
-        <p>I promise to</p>
-    </div>
+        <br>
 
 
-    
-        <img src="tulipan.png" alt="Imagen" id="imagen" onclick="duplicateImage()" width="200px">
+        <br>
+
+
+
+
+        <iframe width="0" height="0" src="https://www.youtube.com/embed/1A0MPWseJIE"
+            title="Chicago - Hard To Say I&#39;m Sorry (Official Music Video)" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+
+
+
+        <img src="tulipan.png" alt="Imagen" id="imagen" onclick="duplicateImage()" width="200px"
+            style="cursor: pointer;">
+
     </div>
 
 </body>

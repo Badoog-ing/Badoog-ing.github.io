@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Para ti</title>
 </head>
-    <style>
+<style>
     body{
-        background-color: #DC7633;
-        color: black;
+        background-color: #000000;
+        color: #ffffff;
         font-family: Arial, Helvetica, sans-serif;
         font-size: 20px;
         text-align: center;
@@ -18,12 +18,51 @@
     }
     p{
         font-size: 30px;
-        line-height: 40px;
+        margin-inline: 20px;
     }
+
+    .tulip-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 200px;
+}
+
+.tulip {
+  width: 80px;
+  height: 120px;
+  background-color: #ff4081;
+  border-radius: 50% 50% 40% 40%;
+  position: relative;
+  z-index: 2;
+}
+
+.tulip:before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 40px solid transparent;
+  border-right: 40px solid transparent;
+  border-bottom: 60px solid #ff4081;
+  z-index: -1;
+}
+
+.tulip-leaf {
+  width: 60px;
+  height: 60px;
+  background-color: #8bc34a;
+  border-radius: 50%;
+  transform: rotate(-45deg) translateX(20px);
+  margin-bottom: 20px;
+}
+
 </style>
-    
 <body>
-    
+
 <h1>Hard to say I'm sorry</h1>
 
 <p>Everybody needs a little time away</p>
@@ -68,6 +107,9 @@ You're just a part of me I can't let go
 After all that we've been through
 I will make it up to you
 I promise to
-    
+<div class="tulip-container">
+    <div class="tulip"></div>
+    <div class="tulip-leaf"></div>
+  </div>
 </body>
 </html>

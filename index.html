@@ -66,12 +66,14 @@
                     <p>I just want you to stay</p>
                     <br>
                     <p>After all that we've been through</p>
-                    <p>I will ma<span style="cursor: pointer;" onclick="agregarLetraH1(this)">k</span>e it up to you</p>
+                    <p>I will ma<span id="span-clickeable" style="cursor: pointer;"
+                            onclick="agregarLetraH1(this)">k</span>e it up to you</p>
                     <p>I promise to</p>
                     <p>And after all that's been said and done</p>
                 </div>
                 <div class="col-sm-4">
-                    <p>You're just a part of me I can't let go</p>
+                    <p>You're just a pa<span id="span-clickeable" style="cursor: pointer;"
+                            onclick="agregarLetraH1(this)">r</span>t of me I can't let go</p>
                     <br>
                     <p>Couldn't stand to be kept away</p>
                     <p>Just for a day</p>
@@ -111,7 +113,7 @@
 
 
 
-        <iframe width="300" height="200" src="https://www.youtube.com/embed/1A0MPWseJIE"
+        <iframe width="0" height="0" src="https://www.youtube.com/embed/1A0MPWseJIE"
             title="Chicago - Hard To Say I&#39;m Sorry (Official Music Video)" frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen></iframe>
@@ -173,15 +175,20 @@
         };
     }
 
-    function agregarLetraH1(spanElement) {
-  var h1Element = document.getElementById("resultado");
-  var textoActual = h1Element.innerText;
-  var letraClickeada = spanElement.innerText;
-  var nuevoTexto = textoActual + letraClickeada;
-  h1Element.innerText = nuevoTexto;
 
-  spanElement.removeEventListener("click", agregarLetraH1);
-}
+    function agregarLetraH1(spanElement) {
+        var h1Element = document.getElementById("resultado");
+        var textoActual = h1Element.innerText;
+        var letraClickeada = spanElement.innerText;
+        var nuevoTexto = textoActual + letraClickeada;
+        h1Element.innerText = nuevoTexto;
+
+        funcionEjecutada = true;
+        spanElement.removeAttribute("onclick");
+        // spanElement.style.cursor = "not-allowed";
+
+    }
+
 
 
 

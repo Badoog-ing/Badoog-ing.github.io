@@ -10,7 +10,7 @@
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <style>
     body {
-        background-image: url('fondo.jpg');
+        background-image: url('fondo2.jpg');
         background-size: cover;
         background-repeat: no-repeat;
         font-family: Arial, Helvetica, sans-serif;
@@ -23,17 +23,18 @@
     }
 
     #resultado {
-        text-shadow: red 0px 0px 10px;
-        color: white;
+        text-shadow: yellow 0px 0px 10px;
+        color: black;
+        font-weight: bold;
     }
 
     p {
-        font-size: 20px;
+        font-size: 22px;
         margin: 0;
         padding: 5px;
         font-weight: bold;
-        text-shadow: black 10px 10px 40px;
-        color: gainsboro;
+        text-shadow: white 1px 1px 10px;
+        color: black;
     }
 
     .image-container {
@@ -59,17 +60,27 @@
 
     <div class="image-container">
         <div class="container card-body">
-            <h1 style="text-transform: uppercase;"><strong>Hard to say I'm sorry</strong></h1>
+            <h1 style="text-transform: uppercase; font-weight: bold;">Hard to say I'm sorry</h1>
         </div>
-        <h1 style="text-transform: uppercase;">
-            <span id="resultado1"></span><span id="resultado2"></span>
-        </h1>
-
+        <div class="container" style="text-transform: uppercase; font-size: 40px;">
+            <strong onchange="verificarEtiquetaStrong()">
+                <span id="resultado1"></span>
+                <span id="resultado2"></span>
+                <span id="resultado3"></span>
+                <span id="resultado4"></span>
+                <span id="resultado5"></span>
+                <span id="resultado6"></span>
+                <span id="resultado7"></span>
+                <span id="resultado8"></span>
+            </strong>
+        </div>
         <br>
+
         <div class="container">
             <div class="row">
                 <div class="col-sm-4">
-                    <p>Everybody needs a little time away</p>
+                    <p>Everybody needs a l<span id="span-clickeable" style="cursor: pointer;"
+                            onclick="agregarLetraH3(this)">i</span>ttle time away</p>
                     <p>I heard her say</p>
                     <p>From each other</p>
                     <br>
@@ -77,7 +88,8 @@
                     <p>Far away from each other</p>
                     <br>
                     <p>Hold me now</p>
-                    <p>It's hard for me to say I'm sorry</p>
+                    <p title="cerca">It's hard for me to <span id="span-clickeable" style="cursor: pointer;"
+                            onclick="agregarLetraH4(this)">s</span>ay I'm sorry</p>
                     <p>I just want you to stay</p>
                     <br>
                     <p>After all that we've been through</p>
@@ -93,29 +105,37 @@
                     <p>Couldn't stand to be kept away</p>
                     <p>Just for a day</p>
                     <p>From your body</p>
-                    <p>Wouldn't want to be swept away</p>
+                    <p>Wouldn't want to be swep<span id="span-clickeable" style="cursor: pointer;"
+                            onclick="agregarLetraH5(this)">t</span> away</p>
                     <p>Far away</p>
                     <p>From the one that I love</p>
                     <br>
                     <p>Hold me now</p>
                     <p>It is hard for me to say I'm sorry</p>
                     <p>I just want you to know</p>
-                    <p>Hold me now</p>
+                    <p>Ho<span id="span-clickeable" style="cursor: pointer;" onclick="agregarLetraH8(this)">l</span>d me
+                        now</p>
                     <p>I really want to tell you I'm sorry</p>
                     <p>I could never let you go</p>
                 </div>
                 <div class="col-sm-4">
                     <p>After all that we've been through</p>
                     <p>I will make it up to you</p>
-                    <p>I promise to</p>
+                    <p>I promis<span id="span-clickeable" style="cursor: pointer;"
+                            onclick="agregarLetraH6(this)">e</span> to</p>
                     <br>
                     <p>After all that's been said and done</p>
                     <p>You're just a part of me I can't let go</p>
                     <br>
-                    <p>After all that we've been through</p>
+                    <p>After al<span id="span-clickeable" style="cursor: pointer;"
+                            onclick="agregarLetraH7(this)">l</span> that we've been through</p>
                     <p>I will make it up to you</p>
                     <p>I promise to</p>
-                    <br><br><br><br><br><br>
+                    <br>
+                    <iframe width="300" height="auto" src="https://www.youtube.com/embed/1A0MPWseJIE?autoplay=1"
+                        title="Chicago - Hard To Say I&#39;m Sorry (Official Music Video)" frameborder="0" autoplay: 1
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
                 </div>
             </div>
         </div>
@@ -128,10 +148,7 @@
 
 
 
-        <iframe width="0" height="0" src="https://www.youtube.com/embed/1A0MPWseJIE?autoplay=1"
-            title="Chicago - Hard To Say I&#39;m Sorry (Official Music Video)" frameborder="0" autoplay: 1
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen></iframe>
+
 
 
 
@@ -144,6 +161,7 @@
 
 <script>
     var positions = [];
+    var contador = 0;
 
     function getRandomPosition(containerRect, duplicateRect) {
         var minX = 0;
@@ -200,7 +218,9 @@
 
         funcionEjecutada = true;
         spanElement.removeAttribute("onclick");
-        // spanElement.style.cursor = "not-allowed";
+        spanElement.style.color = "red";
+        contador = contador + 1;
+        contar();
 
     }
 
@@ -213,11 +233,103 @@
 
         funcionEjecutada = true;
         spanElement.removeAttribute("onclick");
-        // spanElement.style.cursor = "not-allowed";
+        spanElement.style.color = "red";
+        contador = contador + 1;
+        contar();
+    }
+    function agregarLetraH3(spanElement) {
+        var h1Element = document.getElementById("resultado3");
+        var textoActual = h1Element.innerText;
+        var letraClickeada = spanElement.innerText;
+        var nuevoTexto = textoActual + letraClickeada;
+        h1Element.innerText = nuevoTexto;
 
+        funcionEjecutada = true;
+        spanElement.removeAttribute("onclick");
+        spanElement.style.color = "red";
+        contador = contador + 1;
+        contar();
     }
 
+    function agregarLetraH4(spanElement) {
+        var h1Element = document.getElementById("resultado4");
+        var textoActual = h1Element.innerText;
+        var letraClickeada = spanElement.innerText;
+        var nuevoTexto = textoActual + letraClickeada;
+        h1Element.innerText = nuevoTexto;
 
+        funcionEjecutada = true;
+        spanElement.removeAttribute("onclick");
+        spanElement.style.color = "red";
+        contador = contador + 1;
+        contar();
+    }
+    function agregarLetraH5(spanElement) {
+        var h1Element = document.getElementById("resultado5");
+        var textoActual = h1Element.innerText;
+        var letraClickeada = spanElement.innerText;
+        var nuevoTexto = textoActual + letraClickeada;
+        h1Element.innerText = nuevoTexto;
+
+        funcionEjecutada = true;
+        spanElement.removeAttribute("onclick");
+        spanElement.style.color = "red";
+        contador = contador + 1;
+        contar();
+    }
+
+    function agregarLetraH6(spanElement) {
+        var h1Element = document.getElementById("resultado6");
+        var textoActual = h1Element.innerText;
+        var letraClickeada = spanElement.innerText;
+        var nuevoTexto = textoActual + letraClickeada;
+        h1Element.innerText = nuevoTexto;
+
+        funcionEjecutada = true;
+        spanElement.removeAttribute("onclick");
+        spanElement.style.color = "red";
+        contador = contador + 1;
+        contar();
+    }
+    function agregarLetraH7(spanElement) {
+        var h1Element = document.getElementById("resultado7");
+        var textoActual = h1Element.innerText;
+        var letraClickeada = spanElement.innerText;
+        var nuevoTexto = textoActual + letraClickeada;
+        h1Element.innerText = nuevoTexto;
+
+        funcionEjecutada = true;
+        spanElement.style.color = "red";
+        contador = contador + 1;
+        contar();
+    }
+
+    function agregarLetraH8(spanElement) {
+        var h1Element = document.getElementById("resultado8");
+        var textoActual = h1Element.innerText;
+        var letraClickeada = spanElement.innerText;
+        var nuevoTexto = textoActual + letraClickeada;
+        h1Element.innerText = nuevoTexto;
+
+        funcionEjecutada = true;
+        spanElement.style.color = "red";
+        contador = contador + 1;
+        contar();
+    }
+
+    function contar() {
+        if (contador === 8) {
+            alert("¡Felicitaciones! Muchas estrellas para ti");
+            miFuncion();
+        }
+    }
+
+    function miFuncion() {
+        var mensaje = "me encanto te hare panqueques de premio :)";
+        var numeroTelefono = "+56971511567";
+        var urlWhatsApp = "https://api.whatsapp.com/send?phone=" + numeroTelefono + "&text=" + encodeURIComponent(mensaje);
+        window.location.href = urlWhatsApp;
+    }
 
 </script>
 
